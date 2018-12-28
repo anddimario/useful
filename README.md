@@ -2,10 +2,12 @@
 - load: if load > then a value, store best 5 processes ordered by cpu
 - load: kill process with highest cpu (optional)
 - rediskeys if load > then a value, store patterns counts (requirements: redis-cli)
+- services: check if process from upstart, supervisord and pm2 are still running (optional requirements: pm2, supervisord)
+- ping: get a list of sites from a file and see if (requirements: curl)
 - optionals: send email, call a rest url, run a command (requirements: mail, curl)
 
 ## Usage
-`bash SCRIPT.sh CONFIG`    
+`bash SCRIPT.sh CONFIG`
 Example: `bash load.sh ./config`
 
 ## Config
@@ -31,4 +33,14 @@ redis_host=""
 redis_trigger=1000000
 redis_patterns=( '*' 'test:*' )
 redis_command=""
+
+# services
+pm2=true
+upstart=true
+supervisord=true
+upstart_services=( mysql )
+services_command=""
+
+# ping
+ping_file="./sites"
 ```
