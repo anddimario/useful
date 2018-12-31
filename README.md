@@ -4,6 +4,7 @@
 - rediskeys if load > then a value, store patterns counts (requirements: redis-cli)
 - services: check if process from upstart, supervisord and pm2 are still running (optional requirements: pm2, supervisord)
 - ping: get a list of sites from a file and see if (requirements: curl)
+- disk: check if inode and disk space are greater than a value (run command and alert for each checked)
 - optionals: send email, call a rest url, run a command (requirements: mail, curl)
 
 ## Usage
@@ -43,4 +44,9 @@ services_command=""
 
 # ping
 ping_file="./sites"
+
+# disk
+disk_space_limit=50
+disk_inode_limit=50
+disk_command=""
 ```
